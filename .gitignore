@@ -1,0 +1,27 @@
+# Environments
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project caches and outputs
+outputs/
+temp.pdf
+error_trace.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# Streamlit config (if you don't want to push them)
+.streamlit/
