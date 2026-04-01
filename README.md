@@ -92,7 +92,6 @@ The **Flashcards page** with 15 interactive revision cards:
 
 ### 4. 🧩 Mind Map — Visual Hierarchy
 
-<<<<<<< HEAD
 ![Mind Map](screenshots/mindmap.png)
 =======
 
