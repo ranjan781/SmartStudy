@@ -13,7 +13,7 @@
 
 **Upload any PDF — AI instantly generates a structured summary, quiz questions, flashcards, a visual mind map, and an audio podcast.**
 
-[Features](#-features) · [Installation](#-installation) · [Usage](#-usage) · [Project Structure](#-project-structure) · [Tech Stack](#-tech-stack) · [Roadmap](#-roadmap)
+[Features](#-features) · [Screenshots](#-screenshots) · [Installation](#-installation) · [Usage](#-usage) · [Project Structure](#-project-structure) · [Tech Stack](#-tech-stack) · [Roadmap](#-roadmap)
 
 </div>
 
@@ -32,6 +32,97 @@
 | 🎙️ **Podcast** | Two-host conversational audio in NotebookLM style |
 
 > **100% Free** — Powered by the **Groq API free tier** running **Llama 3.3 70B**. No credit card required.
+
+---
+
+## 📸 Screenshots
+
+> Real session using `ML_Python_Commands_Cheatsheet.pdf` — 4 pages, 822 words.
+
+---
+
+### 1. 📋 AI Summary — Overview Tab
+
+![AI Summary](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/summary.png)
+
+The **Summary page** is the first screen after uploading a PDF. Key things visible:
+
+- **File info bar** — `ML_Python_Commands_Cheatsheet.pdf · 4 pages · 822 words`
+- **Topic Paragraph** — AI-generated 3-5 sentence overview of the entire document content
+- **Three tabs** — Overview, Definitions, Formulas — each showing a different type of structured content
+- **Export button** (top right) — downloads the full summary as a JSON file
+- **Sidebar navigation** — all 5 study tools visible: Summary, Quiz & Q&A (15), Flashcards (15), Mind Map, Podcast
+- **Dev Roadmap & Add Feature** buttons at the bottom of the sidebar
+
+The AI correctly identified that the PDF covers Python ML commands across 10 sections — data loading, preprocessing, feature engineering, model training, evaluation, and deployment.
+
+---
+
+### 2. ❓ Quiz & Q&A — Interactive Mode
+
+![Quiz](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/quiz.png)
+
+The **Quiz page** with 15 live interactive questions:
+
+- **Stats bar** at top — Total Questions: **15**, Answered: **9**, Remaining: **6**, with a progress bar
+- **MCQ badge** label on each question card
+- **Question shown** — *"What is the primary function of the pd.read_csv command in Python?"*
+- **4 radio button options** — A) Data visualization, B) Data preprocessing, C) Loading data from CSV files, D) Model training
+- **User selected C)** — marked with filled radio button
+- **Reveal Answer button** — clicked → shows green `✅ Answer: C` card below the options
+- **On-demand generation** — quiz generates only when the button is clicked, saving API calls
+
+---
+
+### 3. 🗂️ Flashcards — Flip Card Mode
+
+![Flashcards](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/flashcards.png)
+
+The **Flashcards page** with 15 interactive revision cards:
+
+- **Blue progress bar** at top — fully filled showing Card 1 of 15
+- **Card counter** — *"Card 1 of 15"* shown below the bar
+- **Front side of card** — shows label `QUESTION` and the term **"Pandas"** in large bold text
+- **Three navigation buttons** — `← Previous`, `🔄 Flip Card` (reveals answer), `Next →`
+- **"View All 15 Cards"** expandable section below — quick list showing:
+  - `#1 — Pandas: A Python library for data manipulation and analysis`
+  - (and 14 more cards below)
+
+---
+
+### 4. 🧩 Mind Map — Visual Hierarchy
+
+![Mind Map](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/mindmap.png)
+
+The **Mind Map page** with full Graphviz-rendered topic tree:
+
+- **Top section** — actual visual Graphviz diagram showing the complete topic hierarchy as a tree
+- **Root node** — `Python ML` at the top center
+- **7 branch nodes** — Data Loading, Data Prep, Feature Eng, Model Train, Model Eval, Model Build, Model Saving
+- **Leaf nodes** under each branch:
+  - Data Loading → CSV Load, SQL Load, Data Inspection
+  - Data Prep → Handle Missing, Remove Duplicates, Encode Categorical
+  - Feature Eng → Create Features, Select Features, Transform Features
+  - And more for each branch...
+- **"View Hierarchy as List"** expandable section — same structure as indented text:
+  - `Python ML` (root, shown as purple banner)
+  - `● Data Loading` → `○ CSV Load`, `○ SQL Load`, `○ Data Inspection`
+  - `● Data Prep` → `○ Handle Missing`, `○ Remove Duplicates`, `○ Encode Categorical`
+
+---
+
+### 5. 🎙️ Podcast — Audio Player
+
+![Podcast](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/podcast.png)
+
+The **Podcast page** with a fully generated and playable audio file:
+
+- **"AI Generated" badge** next to the Podcast heading
+- **Description text** — *"Generate an AI podcast from your study material. Two hosts discuss the key topics in a conversational format — perfect for learning on the go."*
+- **Native browser audio player** — shows `0:00 / 5:12`, with play button, seek bar, volume, and options
+- **"Download Podcast" button** — saves the `.mp3` file locally for offline listening (gym, commute, etc.)
+
+The podcast was generated from the ML Python cheatsheet — Host A (curious student) asked questions about Pandas, NumPy, and sklearn, while Host B (expert) explained with examples. Total generation time ~3-4 minutes including Groq script + Kokoro TTS audio rendering for all 24 turns.
 
 ---
 
@@ -65,13 +156,14 @@
 - **Front side** — question or key term to recall
 - **Back side** — detailed answer or definition
 - Card flip interaction in the Streamlit UI
-- Navigate with Previous and Next buttons
+- Navigate with Previous and Next buttons + "View All" bulk list
 
 ### 🧩 Module 4 — Mind Map
 - Generates a structured topic hierarchy using **Graphviz**
 - Root node = main document topic
 - Branch nodes = major subtopics
 - Leaf nodes = supporting details and facts
+- Inline visual diagram + collapsible text hierarchy list
 - Exports as a downloadable PNG image
 
 ### 🎙️ Module 5 — Podcast Generation
@@ -80,14 +172,18 @@
 - **Host B** — a knowledgeable expert explaining with examples
 - Script produced by Groq API (Llama 3.3 70B for natural conversation quality)
 - Targets 25 to 30 dialogue turns covering all key topics
+- Kokoro TTS voices each line with distinct voices
+- pydub merges all clips with 400ms natural pauses
+- Output: downloadable `.mp3` file (5-10 minutes)
 
 ### 🖥️ Streamlit Web UI
 - Premium dark-themed interface built with custom CSS
 - Sidebar navigation — Summary, Quiz, Flashcards, Mind Map, Podcast
-- Accepts PDF, TXT, and MD file uploads
+- Accepts PDF, TXT, and MD file uploads (up to 200MB)
 - Live progress indicator during AI processing
 - Download buttons for every generated output
 - On-demand generation — each tool generates only when you click
+- Dev Roadmap + Add Feature quick-access buttons in sidebar
 
 ---
 
@@ -96,7 +192,7 @@
 ### Prerequisites
 
 - Python 3.10 or newer
-- Groq API key — [Get your free key here](https://console.groq.com)
+- Groq API key — [Get your free key here](https://console.groq.com) (no credit card required)
 - Graphviz installed at the system level (required for mind map)
 
 ### Step 1 — Clone the Repository
@@ -216,7 +312,7 @@ SmartStudy/
 │   ├── quiz_gen.py           # Quiz generation — Groq API
 │   ├── flashcard_gen.py      # Flashcard generation — Groq API
 │   ├── mindmap_gen.py        # Mind map generation — Graphviz
-│   ├── podcast_gen.py        # Podcast script — Groq API
+│   ├── podcast_gen.py        # Podcast script + Kokoro TTS + pydub
 │   └── exporter.py           # File export — TXT, JSON, PDF via ReportLab
 │
 ├── prompts/
@@ -226,10 +322,17 @@ SmartStudy/
 │   ├── mindmap_prompt.txt    # System prompt for mind map hierarchy
 │   └── podcast_prompt.txt    # System prompt for podcast dialogue
 │
+├── screenshots/
+│   ├── summary.png           # AI Summary page
+│   ├── quiz.png              # Quiz & Q&A interactive mode
+│   ├── flashcards.png        # Flashcard flip UI
+│   ├── mindmap.png           # Graphviz mind map diagram
+│   └── podcast.png           # Podcast audio player
+│
 ├── outputs/                  # All generated files land here
 │   ├── summary.json
 │   ├── quiz.txt
-│   └── podcast script
+│   └── podcast.mp3
 │
 ├── test_extractor.py         # Test — PDF text extraction
 ├── test_gemini.py            # Test — Groq API connection
@@ -250,6 +353,8 @@ SmartStudy/
 | **PDF Extraction** | PyMuPDF (fitz) | 1.24+ | Extract and clean text from PDF pages |
 | **AI / LLM** | Groq API | 0.9+ | Fast inference for all AI features |
 | **LLM Models** | Llama 3.3 70B + Llama 3.1 8B | — | Groq-hosted open-source models |
+| **TTS** | Kokoro TTS (kokoro-onnx) | — | Text-to-speech for podcast audio |
+| **Audio** | pydub + ffmpeg | — | Merge voice clips into final .mp3 |
 | **UI Framework** | Streamlit | 1.30+ | Web interface with custom dark theme |
 | **Mind Map** | Graphviz | 0.20+ | Topic hierarchy diagram rendering |
 | **PDF Export** | ReportLab | 4.0+ | Generate downloadable quiz PDFs |
@@ -299,13 +404,13 @@ User uploads PDF
         ▼                     ▼                     ▼                     ▼
 [quiz_gen.py]         [flashcard_gen.py]    [mindmap_gen.py]     [podcast_gen.py]
 Groq → 15 questions   Groq → 15 cards       Groq → hierarchy     Groq → dialogue JSON
-JSON with answers     front + back pairs    Graphviz → PNG       script → audio
+JSON with answers     front + back pairs    Graphviz → PNG       Kokoro TTS → .mp3
         │                     │                     │                     │
         └─────────────────────┴─────────────────────┴─────────────────────┘
                                         │
                                         ▼
                               [exporter.py]
-                   Saves summary.json, quiz.txt, mind_map.png
+                   Saves summary.json, quiz.txt, mind_map.png, podcast.mp3
                    to the outputs/ folder
 ```
 
@@ -375,6 +480,7 @@ time.sleep(2)  # 2 second pause between calls
 | Error | Likely Cause | Fix |
 |---|---|---|
 | `GROQ_API_KEY not found` | `.env` file missing or misnamed | Create `.env` in the project root with your key |
+| `No module named 'groq'` | groq not installed | `pip install groq` inside your venv |
 | `AuthenticationError` | Invalid or expired API key | Generate a new key at console.groq.com |
 | `RateLimitError` | Too many requests per minute | Add `time.sleep(2)` between Groq calls |
 | `graphviz.backend.execute.ExecutableNotFound` | Graphviz not installed at system level | Run `brew install graphviz` or `apt install graphviz` |
@@ -382,7 +488,6 @@ time.sleep(2)  # 2 second pause between calls
 | `JSONDecodeError` on quiz output | LLM returned text with markdown fences | The retry logic in `quiz_gen.py` handles this automatically |
 | Empty extraction from PDF | Scanned or image-only PDF | OCR is not supported in v1 — use text-based PDFs only |
 | Streamlit port already in use | Another process on port 8501 | Run `streamlit run app.py --server.port 8502` |
-| `ModuleNotFoundError: groq` | Groq package not installed | Run `pip install groq` |
 
 ---
 
@@ -394,19 +499,19 @@ time.sleep(2)  # 2 second pause between calls
 - [x] Quiz generation — 4 question types
 - [x] Flashcard generation with flip interaction
 - [x] Mind map visualization with Graphviz
-- [x] Podcast script generation
+- [x] Podcast script + Kokoro TTS + pydub .mp3
 - [x] Dark-themed Streamlit UI with custom CSS
-- [x] CLI support with feature flags
-- [x] File export — TXT, JSON, PDF
+- [x] CLI support with `--quiz` `--podcast` flags
+- [x] File export — JSON, TXT, MP3, PDF
 
 ### v2.0 — Planned 🚧
 - [ ] **OCR support** — handle scanned and image-only PDFs using pytesseract
-- [ ] **Multi-PDF RAG** — build a personal knowledge base across multiple documents and ask questions across all of them
-- [ ] **Interactive quiz mode** — live scoring, countdown timer, wrong answer explanations with links back to the summary
-- [ ] **Anki export** — generate `.apkg` flashcard files compatible with the Anki spaced repetition system
+- [ ] **Multi-PDF RAG** — build a personal knowledge base across multiple documents
+- [ ] **Interactive quiz mode** — live scoring, countdown timer, wrong answer explanations
+- [ ] **Anki export** — generate `.apkg` flashcard files for spaced repetition
 - [ ] **Hindi voice support** — multilingual podcast output using regional TTS voices
 - [ ] **YouTube transcript ingestion** — study from video lectures, not just PDFs
-- [ ] **Progress dashboard** — track quiz scores over time, identify weak topics, visualize improvement
+- [ ] **Progress dashboard** — track quiz scores over time, identify weak topics
 - [ ] **Telegram bot interface** — send a PDF, receive summary and quiz directly on mobile
 
 ---
