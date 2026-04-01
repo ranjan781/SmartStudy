@@ -92,7 +92,7 @@ The **Flashcards page** with 15 interactive revision cards:
 
 ### 4. 🧩 Mind Map — Visual Hierarchy
 
-![Mind Map](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/mindmap.png)
+![Mind Map](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/MindMap.png)
 
 The **Mind Map page** with full Graphviz-rendered topic tree:
 
