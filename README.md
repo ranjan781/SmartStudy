@@ -60,7 +60,7 @@ The AI correctly identified that the PDF covers Python ML commands across 10 sec
 
 ### 2. ❓ Quiz & Q&A — Interactive Mode
 
-![Quiz](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/quiz.png)
+![Quiz](screenshots/quiz.png)
 
 The **Quiz page** with 15 live interactive questions:
 
@@ -76,7 +76,7 @@ The **Quiz page** with 15 live interactive questions:
 
 ### 3. 🗂️ Flashcards — Flip Card Mode
 
-![Flashcards](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/flashcards.png)
+![Flashcards](screenshots/flashcards.png)
 
 The **Flashcards page** with 15 interactive revision cards:
 
@@ -92,7 +92,7 @@ The **Flashcards page** with 15 interactive revision cards:
 
 ### 4. 🧩 Mind Map — Visual Hierarchy
 
-![Mind Map](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/mindmap.png)
+![Mind Map](screenshots/mindmap.png)
 
 The **Mind Map page** with full Graphviz-rendered topic tree:
 
@@ -113,7 +113,7 @@ The **Mind Map page** with full Graphviz-rendered topic tree:
 
 ### 5. 🎙️ Podcast — Audio Player
 
-![Podcast](https://raw.githubusercontent.com/ranjan781/SmartStudy/main/screenshots/podcast.png)
+![Podcast](screenshots/podcast.png)
 
 The **Podcast page** with a fully generated and playable audio file:
 
